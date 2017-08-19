@@ -1,4 +1,4 @@
-# Project Title
+# Enterprise Audit Service
 
 This is a platform service application written in Spring Boot. The application provides API which when called from the client application keeps a copy of the data in a history server. 
 For example you have a person entity and before updating a person a copy of the old data needs to be preserved. This can be simply done by calling something like 
@@ -60,34 +60,48 @@ If the build is successful then you will get the following
 Go to target folder and  run
 java -jar AuditServiceProject-0.0.1-SNAPSHOT.jar
 On your browser 
-http://localhost:9000/audit/history/12/Test 
+http://localhost:8000/audit/history/12/Test 
 You should see the audit data created by the test program
 
 
 Explain how to run the automated tests for this system
 
-### Break down into end to end tests
+### End to end tests
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+Integration tests added to this program inserts items to the audit_info table and returns them at get
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+To Deploy to a production system please add a application-prod.yml
+Specify the port where you want this to run. In AWS elastic Beanstalk go to the SERVER_PORT and add the port.
+Please go to Swagger documentation to know more about the end points.
+
+## Using it in the Program where you want to Audit Data
+
+To use the logger in your application you will need to write a simple wrapper program.
+The Java version of the program is available at  
+https://github.com/dwai1714/audit-client.git 
+Either copy the jar in your class path or just copy the two files in your project.
+In your service where any CRUD is called just add 
+auditClient.createAuditLog(false, yourObject.getPrimaryKey().toString(), ENTITY_NAME_OF_YOUR_OBJECT, yourObject);
+In the application yaml (For Spring). Please use config file of your language specific 
+add the following 
+audit.serverUrl=http://localhost:8000/api (Replace with the actual URL of the server)
+audit.createdBy=createUser (The audit service calls the created By user as createdBy. Please map this with what is it called in your application. In this case the Program  calls the createdBy field as createUser)
+@Column(name="create_user",nullable=false, length=50)
+    public String getCreateUser() {
+        return this.createUser;
+    }
+audit.lastModifiedBy=updateUser (This is for the modified or update user)
+audit.createdDate=createTs (Create timeStamp)
+audit.lastModifiedDate=updateTs  (Update timeStamp)
+
+To see a reference implementation please download the java application from this location
+https://github.com/dwai1714/spring-boot-ref-impl.git
+
 
 ## Built With
-
+Spring Boot
 
 
 ## Versioning
