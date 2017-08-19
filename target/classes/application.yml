@@ -1,0 +1,63 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://dwaip:Accion123@ds049496.mlab.com:49496/accion_rackspace
+      repositories:
+        enabled: true
+    jpa:
+      repositories:
+        enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/emdm_d
+    username : tdaruwalla
+    password : tdaruwalla               #${password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    #database-platform : com.audit.utils.JsonbExtensionToPostgreSQLDialect
+    properties:
+      hibernate:
+        default_schema: emdm
+    #hibernate:
+      # possible values: validate | update | create | create-drop
+     # ddl-auto: validate
+  
+     
+  jackson:
+      serialization:
+        write-dates-as-timestamps: false
+  profiles:
+      active: postgres
+           
+logging:
+  level:
+    root: fatal
+    com.audit: debug
+    org.springframework: ERROR
+  file: /tmp/config/logs/attributes-service.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+server:
+    port: 8000
+    contextPath: /api
+    
+swagger:
+  api:
+    base:
+      package: com.audit.controller
+    path: /audit.*  
+    title: Audit REST API
+    description: Spring Boot REST API for Audit
+    version: 1.0
+    termsofservice:
+      url: Terms of service
+    contact:
+      name: DC
+      url:  https://github.com/dwai1714/audit-mongo
+      email: dwaip.chowdhury@accionlabs.com
+    license:
+      name: 
+      url: 
+
+ 
