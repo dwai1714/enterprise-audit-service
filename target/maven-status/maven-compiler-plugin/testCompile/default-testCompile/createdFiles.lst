@@ -1,0 +1,5 @@
+com/audit/application/test/AuditServiceIntegrationPostTest.class
+com/audit/application/test/AuditTestItem.class
+com/audit/application/test/Item.class
+com/audit/application/test/AuditServiceUnitTest.class
+com/audit/application/test/AuditServiceIntegrationGetTests.class
