@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://dwaip:Accion123@ds049496.mlab.com:49496/accion_rackspace
+      uri: mongodb://dwaip:password@ds049496.mlab.com:49496/accion
       repositories:
         enabled: true
     jpa:
@@ -9,8 +9,8 @@ spring:
         enabled: true
   datasource:
     url: jdbc:postgresql://localhost:5432/emdm_d
-    username : tdaruwalla
-    password : tdaruwalla               #${password}
+    username : dwaip
+    password : dwaip               #${password}
     driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
