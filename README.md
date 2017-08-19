@@ -64,8 +64,6 @@ http://localhost:8000/audit/history/12/Test
 You should see the audit data created by the test program
 
 
-Explain how to run the automated tests for this system
-
 ### End to end tests
 
 Integration tests added to this program inserts items to the audit_info table and returns them at get
@@ -82,8 +80,11 @@ To use the logger in your application you will need to write a simple wrapper pr
 The Java version of the program is available at  
 https://github.com/dwai1714/audit-client.git 
 Either copy the jar in your class path or just copy the two files in your project.
-In your service where any CRUD is called just add 
+In your service where any CRUD is called just add:
+a) If you want the entity to be saved even if the logger is down or throws error:
 auditClient.createAuditLog(false, yourObject.getPrimaryKey().toString(), ENTITY_NAME_OF_YOUR_OBJECT, yourObject);
+b) If you want the entity NOT to be saved even if the logger is down or throws error:
+auditClient.createAuditLog(yourObject.getPrimaryKey().toString(), ENTITY_NAME_OF_YOUR_OBJECT, yourObject);
 In the application yaml (For Spring). Please use config file of your language specific 
 add the following 
 audit.serverUrl=http://localhost:8000/api (Replace with the actual URL of the server)
