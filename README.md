@@ -8,7 +8,7 @@ The application provides a jar that needs to be included in the client applicati
 ## Getting Started
 To set up this project locally.
 This project can run on MongoDB or PostgreSql as Database. 
-First do a git clone of the project from https://github.com/accionlabs/msa_spikes.git
+First do a git clone of the project from https://github.com/dwai1714/enterprise-audit-service.git
 This will download the reference implementation also.
 before you can start and test there are some changes that needs to be done.
 If you are using MongoDB: Open the application.yml file and 
