@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.audit.utils.JsonbUserType;
@@ -25,7 +26,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 @Entity
 @Table(name = "Audit_info")
 @TypeDef(name = JsonbUserType.JSONB_TYPE, typeClass = JsonbUserType.class)
-
 public class AuditInfoPostgres implements AuditInfo {
 	private String sourceObjId;
 	private Object sourceObj;

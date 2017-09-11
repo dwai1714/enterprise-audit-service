@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -15,7 +16,7 @@ import com.audit.entities.AuditInfo;
 import com.audit.entities.AuditInfoMongo;
 
 @Component
-@Profile("mongo")
+@Qualifier("mongo")
 public class AuditInfoRepoMongoImpl implements AuditInfoRepo {
 	@Autowired
 	private AuditMongoRepo auditMongoRepo;

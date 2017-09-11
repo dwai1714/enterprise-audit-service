@@ -1,7 +1,4 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/emdm_d
-    username : ${tdaruwalla}
-    password : ${password}  # tdaruwalla               #${password}
-    driver-class-name: org.postgresql.Driver
- 
+    password : tdaruwalla               #${password}
+  

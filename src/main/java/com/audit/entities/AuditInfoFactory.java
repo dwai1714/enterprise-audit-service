@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuditInfoFactory {
 
-	@Value("${spring.profiles.active}")  
-	private String databaseIs;
+	@Value("${audit.qualifier}")  
+	private String databaseIs ;
 
 	public AuditInfo getAuditInfo() {
 		if (databaseIs.equals("postgres")) {

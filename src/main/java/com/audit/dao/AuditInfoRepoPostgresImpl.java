@@ -3,6 +3,7 @@ package com.audit.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +11,7 @@ import com.audit.entities.AuditInfo;
 import com.audit.entities.AuditInfoPostgres;
 
 @Component
-@Profile("postgres")
+@Qualifier("postgres")
 public class AuditInfoRepoPostgresImpl implements AuditInfoRepo {
 
 	@Autowired

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping(value = "/audit")
 public class AuditController {
 
-	private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+	private Logger log = LoggerFactory.getLogger(getClass());
 
 	@Autowired
 	private AuditService<AuditInfo> auditService;
@@ -45,7 +46,7 @@ public class AuditController {
 	public List<AuditInfo> getAuditInfo(@PathVariable("id") String id, 
 			@PathVariable("objName") String objName) {
 		List<AuditInfo> auditInfos = auditService.getAuditInfo(id, objName);
-		LOGGER.debug("Found {} recored for the ID {}", auditInfos.size(), id);
+		this.log.info("Found " + auditInfos.size() + " recored for the ID " + id);
 		return auditInfos;
 	}
 
@@ -70,7 +71,7 @@ public class AuditController {
 		
 	public Map<String, String> addAuditInfo(@RequestBody SourceObjectEntity auditData,
 			@RequestHeader Map <String, String> auditHeaders) {
-		LOGGER.debug("Processing Audit Info of Class {}  with source object id", auditData.getSourceObjId());
+		this.log.info("Processing Audit Info of Class with source object id " +  auditData.getSourceObjId());
 		
 		String Id = auditService.storeAuditInfo(auditData, auditHeaders);
 		Map<String, String> response = new HashMap<>();
