@@ -37,7 +37,7 @@ logging:
     root: fatal
     com.audit: debug
     org.springframework: ERROR
-  file: /tmp/config/logs/attributes-service.log
+  file: /tmp/config/logs/audit-service.log
 server:
     port: 8000
     contextPath: /api
