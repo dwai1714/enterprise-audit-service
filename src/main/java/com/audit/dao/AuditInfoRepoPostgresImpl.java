@@ -11,7 +11,7 @@ import com.audit.entities.AuditInfo;
 import com.audit.entities.AuditInfoPostgres;
 
 @Component
-@Qualifier("postgres")
+@Profile("postgres")
 public class AuditInfoRepoPostgresImpl implements AuditInfoRepo {
 
 	@Autowired

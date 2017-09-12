@@ -16,7 +16,7 @@ import com.audit.entities.AuditInfo;
 import com.audit.entities.AuditInfoMongo;
 
 @Component
-@Qualifier("mongo")
+@Profile("mongo")
 public class AuditInfoRepoMongoImpl implements AuditInfoRepo {
 	@Autowired
 	private AuditMongoRepo auditMongoRepo;

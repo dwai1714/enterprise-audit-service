@@ -13,7 +13,7 @@ import com.audit.entities.AuditInfoPostgres;
  * @author DC
  *
  */
-@Qualifier("postgres")
+@Profile("postgres")
 
 public interface AuditPostgresRepo extends JpaRepository<AuditInfoPostgres, String> {
 	/**

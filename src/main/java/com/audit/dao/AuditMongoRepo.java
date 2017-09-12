@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import com.audit.entities.AuditInfo;
 
 
-@Qualifier("mongo")
+@Profile("mongo")
 
 public interface AuditMongoRepo extends MongoRepository<AuditInfo, String> {
 

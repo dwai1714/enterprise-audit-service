@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuditInfoFactory {
 
-	@Value("${audit.qualifier}")  
+	@Value("${spring.profiles.include}")  
 	private String databaseIs ;
 
 	public AuditInfo getAuditInfo() {
