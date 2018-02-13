@@ -11,6 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import com.audit.utils.JsonbUserType;
@@ -22,6 +23,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  *
  */
 // @Document(collection = "AuditInfo")
+@Profile("postgres")
 @Component(value = "AuditInfoPostgres")
 @Entity
 @Table(name = "Audit_info")

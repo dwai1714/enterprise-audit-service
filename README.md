@@ -19,15 +19,9 @@ b) Make sure the profile is set like below:
 		spring:
 		  profiles:
              include: mongo 
-	
-If you are using MongoDB: Open the application.yml file and 
-a) Put your URI  
-	uri: mongodb://username:password@your-mongo-conn/mongo_database 
-	If you are running on mlabs it will be something like  uri: mongodb://DC:Pass23@ds048966.mlab.com:49496/audit
-b) Make sure the profile is set like below in application.yml: 
-		spring:
-		  profiles:
-             include: mongo 
+c)   spring:
+        autoconfigure:
+          exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
 
 If you are using PostgresSQL: Open the application.yml file and 
 a) Configure your datasource with your postgres credentials  
@@ -40,7 +34,7 @@ b) Make sure the profile is set like below:
 		spring:
 		  profiles:
              include: postgres 
-	
+c) Make sure you remove the exclude if you are switching from mongo	
 
 ### Prerequisites
 

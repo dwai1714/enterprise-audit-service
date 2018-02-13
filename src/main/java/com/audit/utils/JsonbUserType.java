@@ -14,8 +14,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.hibernate.HibernateException;
-import org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl;
-import org.hibernate.boot.registry.classloading.spi.ClassLoaderService;
 import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.type.SerializationException;
 import org.hibernate.usertype.UserType;

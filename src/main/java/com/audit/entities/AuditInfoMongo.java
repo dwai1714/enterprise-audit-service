@@ -3,6 +3,7 @@ package com.audit.entities;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Component;
  * @author DC
  *
  */
+@Profile("mongo")
 @Component(value = "AuditInfoMongo")
 @Document(collection = "Audit_Info")
 public class AuditInfoMongo implements AuditInfo {

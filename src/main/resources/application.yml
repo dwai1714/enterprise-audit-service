@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://dwaip:password@ds049496.mlab.com:49496/accion
+      uri: mongodb://localhost/test
       repositories:
         enabled: true
     jpa:
@@ -10,7 +10,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/emdm_d
     username : tdaruwalla
-    #password : tdaruwalla               #${password}
+    #password : #${password}
     driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
@@ -18,12 +18,12 @@ spring:
     properties:
       hibernate:
         default_schema: emdm
-    #hibernate:
-      # possible values: validate | update | create | create-drop
-     # ddl-auto: validate
-  
+
+  autoconfigure:
+      exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+ 
   profiles:
-    include: postgres
+    include: mongo
      
   jackson:
       serialization:
